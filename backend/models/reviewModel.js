@@ -14,7 +14,7 @@ class ReviewModel {
         const res = await this.db.query(query, values);
         return res.rows;
     }
-    async getRevieByUserID(userID){
+    async getReviewsByUserID(userID){
         const query = 'SELECT * FROM reviews WHERE user_id = $1';
         const values = [userID];
         const res = await this.db.query(query, values);

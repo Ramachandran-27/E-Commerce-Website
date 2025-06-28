@@ -20,5 +20,17 @@ class OrderModel {
         const res = await this.db.query(query, values);
         return res.rows;
     }
+    async updateOrderStatus(orderId, newStatus) {
+        const query = 'UPDATE orders SET status = $1 WHERE id = $2 RETURNING *';
+        const values = [newStatus, orderId];
+        const res = await this.db.query(query, values);
+        return res.rows[0];
+    }
+    async deleteOrder(orderId) {
+        const query = 'DELETE FROM orders WHERE id = $1 RETURNING *';
+        const values = [orderId];
+        const res = await this.db.query(query, values);
+        return res.rows[0];
+    }
 }
 export default OrderModel;

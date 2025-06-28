@@ -3,9 +3,9 @@ class PaymentModel {
         this.db = db;
     }
 
-    async createPayment(userId, orderId, amount, paymentMethod) {
-        const query = 'INSERT INTO payments (user_id, order_id, amount, payment_method) VALUES ($1, $2, $3, $4) RETURNING *';
-        const values = [userId, orderId, amount, paymentMethod];
+    async createPayment(userId, orderId, amount, paymentMethod, status) {
+        const query = 'INSERT INTO payments (user_id, order_id, amount, payment_method, status) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+        const values = [userId, orderId, amount, paymentMethod, status];
         const res = await this.db.query(query, values);
         return res.rows[0];
     }
