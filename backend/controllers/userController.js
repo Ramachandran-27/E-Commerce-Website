@@ -8,6 +8,7 @@ class UserController {
     {
         try {
             const {name,email,password} = req.body;
+            console.log("Registering user:", name, email, password);
             if (!name || !email || !password) 
             {
                 return res.status(400).json({ error: 'Name, email, and password are required' });
@@ -56,11 +57,13 @@ class UserController {
             {
                 return res.status(401).json({error: 'Invalid email or password'});
             }
-            res.status(200).json({ message: 'Login successful', user });
+            const { password_hash, ...userWithoutPassword } = user; // Exclude password from response
+            res.status(200).json({ message: 'Login successful', user: userWithoutPassword });
         }
         catch (error)
         {
-            res.status(500).json({ error: 'Error logging in user' });
+            console.log("Error logging in user:", error);
+            res.status(500).json({ message: 'Error logging in user' });
         }
     }
 
@@ -75,11 +78,12 @@ class UserController {
             }
 
             const user = await this.UserModel.getUserById(userId);
+            const { password_hash, ...userWithoutPassword } = user; // Exclude password from response
             if (!user)
             {
                 return res.status(404).json({ error: 'User not found' });
             }
-            res.status(200).json(user);
+            res.status(200).json(userWithoutPassword);
         }
         catch (error)
         {
@@ -101,7 +105,8 @@ class UserController {
 
             // Check if user exists
             const existingUser = await this.UserModel.getUserByEmail(email);
-            if (existingUser && existingUser.id !== userId)
+            console.log("Existing user:", existingUser, "User ID:", userId);
+            if (existingUser && existingUser.id != userId)
             {
                 return res.status(400).json({ error: 'Email already in use by another user' });
             }
@@ -121,7 +126,12 @@ class UserController {
                 password:passwordHash
             };
             const updatedUser = await this.UserModel.updateUser(userId,userData);
-            res.status(200).json(updatedUser);
+            if (!updatedUser)
+            {
+                return res.status(500).json({ error: 'Error updating user profile' });
+            }
+            const { password_hash, ...userWithoutPassword } = updatedUser; // Exclude password from response
+            res.status(200).json(userWithoutPassword);
         }
         catch (error)
         {
