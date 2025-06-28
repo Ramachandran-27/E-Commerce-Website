@@ -1,4 +1,5 @@
 import express from 'express';
+import authMiddleware from '../middleware/authMiddleware.js';
 
 export default function userRoutes(userController) {
     const router = express.Router();
@@ -9,12 +10,12 @@ export default function userRoutes(userController) {
     router.post('/login', (req,res) => {userController.loginUser(req, res);});
 
     // Get user by ID
-    router.get('/:id', (req,res) => {userController.getUserProfile(req, res);});
+    router.get('/:id', authMiddleware, (req,res) => {userController.getUserProfile(req, res);});
 
     // Update user profile
-    router.put('/:id', (req,res) => {userController.updateUserProfile(req, res);});
+    router.put('/:id', authMiddleware, (req,res) => {userController.updateUserProfile(req, res);});
 
     // Delete user
-    router.delete('/:id', (req,res) => {userController.deleteUser(req, res);});
+    router.delete('/:id',authMiddleware, (req,res) => {userController.deleteUser(req, res);});
     return router;
 }

@@ -1,4 +1,6 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 class UserController {
     constructor(UserModel)
     {
@@ -28,7 +30,14 @@ class UserController {
                 password:passwordHash
             };
             const newUser = await this.UserModel.createUser(userData);
-            res.status(201).json(newUser);
+            jwt.sign({ id: newUser.id, email: newUser.email }, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+                if (err) {
+                    console.error("Error signing JWT:", err);
+                    return res.status(500).json({ error: 'Error signing JWT' });
+                }
+                const { password_hash, ...userWithoutPassword } = newUser; // Exclude password from response
+                res.status(201).json({ message: 'User registered successfully', user: userWithoutPassword, token });
+            });
         }
         catch (error)
         {
@@ -58,7 +67,13 @@ class UserController {
                 return res.status(401).json({error: 'Invalid email or password'});
             }
             const { password_hash, ...userWithoutPassword } = user; // Exclude password from response
-            res.status(200).json({ message: 'Login successful', user: userWithoutPassword });
+            jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
+                if (err) {
+                    console.error("Error signing JWT:", err);
+                    return res.status(500).json({ error: 'Error signing JWT' });
+                }
+                res.status(200).json({ message: 'User logged in successfully', user: userWithoutPassword, token });
+            });
         }
         catch (error)
         {
