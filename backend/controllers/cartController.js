@@ -28,7 +28,7 @@ class CartController {
             const updatedItem = await this.CartModel.updateCartItem(cartId, quantity);
             res.status(200).json(updatedItem);
         } catch (error) {
-            res.status(500).json({ message: 'Error updating cart item', error });
+            res.status(500).json({ message: 'Error updating cart item'+error.message, error });
         }
     }
 
@@ -38,6 +38,8 @@ class CartController {
             const removedItem = await this.CartModel.removeFromCart(cartId, productId);
             res.status(200).json(removedItem);
         } catch (error) {
+            console.log(error.message);
+            console.log(req.body);
             res.status(500).json({ message: 'Error removing item from cart', error });
         }
     }

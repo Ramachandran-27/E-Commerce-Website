@@ -6,7 +6,9 @@ class ProductController {
     }
     async createProduct(req, res) {
         try {
-            const { name, description, price, stock, category_id, images = [], specifications = [] } = req.body;
+            const { name, description, price, stock, category_id, specifications = [] } = req.body;
+            const images = req.files.map(file => file.filename);
+
             if (!name || !description || !price || !stock || !category_id) {
                 return res.status(400).json({error: "Missing required fields"});
             }
@@ -22,7 +24,21 @@ class ProductController {
 
     async getAllProducts(req, res) {
         try{
-            const { filters = {}, sort = {field: "name", direction: "asc"}, pagination = {limit: 10, offset: 0} } = req.query || {};
+            const params = req.query || {};
+            const filters = {
+                search:params.search || '',
+                categoryId:params.categoryId || '',
+                minPrice:params.minPrice || '',
+                maxPrice:params.maxPrice || ''
+            };
+            const sort = {
+                field:params.field || 'name',
+                direction:params.direction || 'asc'
+            };
+            const pagination = {
+                offset:params.offset || 0,
+                limit:params.limit || 10
+            };
             console.log(req.query);
             console.log("Filters:", filters);
             console.log("Sort:", sort);

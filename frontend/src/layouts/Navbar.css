@@ -1,0 +1,119 @@
+.navbar {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 3.5vw;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1.5px solid #f6d36544;
+}
+header {
+  width:100%;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.navbar-logo-icon {
+  font-size: 2rem;
+  color: #fda085;
+}
+
+.navbar-logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #22223b;
+  letter-spacing: 1px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: #f2e9e4;
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+}
+
+.search-select {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #4a4e69;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  outline: none;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  color: #22223b;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  outline: none;
+  width: 180px;
+}
+
+.search-btn {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(253, 160, 133, 0.10);
+}
+
+.search-btn:hover {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbar-links a {
+  color: #4a4e69;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 7px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navbar-links a:hover, .navbar-links .cart-link:hover {
+  background: linear-gradient(90deg, #f6d36522 0%, #fda08522 100%);
+  color: #fda085;
+}
+
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 700;
+  color: #fda085;
+}

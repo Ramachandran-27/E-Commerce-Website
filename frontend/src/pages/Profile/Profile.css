@@ -1,0 +1,129 @@
+.profile-container {
+  max-width: 800px;
+  min-width: fit-content;
+  margin: 3rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  padding: 2.5rem 2rem;
+}
+
+.profile-container h2 {
+  color: #22223b;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.profile-form label {
+  color: #4a4e69;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.profile-form input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #f2e9e4;
+  font-size: 1rem;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+}
+
+.profile-form input:disabled {
+  background: #ececec;
+  color: #aaa;
+}
+
+.profile-actions {
+  margin-top: 1rem;
+}
+
+.profile-btn {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(253, 160, 133, 0.10);
+  margin-right: 0.7rem;
+}
+
+.profile-btn:hover {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.cancel-btn {
+  background: #ececec;
+  color: #fda085;
+}
+
+.cancel-btn:hover {
+  background: #fda08522;
+  color: #fda085;
+}
+
+.profile-msg {
+  margin-top: 1rem;
+  color: #fda085;
+  font-weight: 600;
+  text-align: center;
+}
+
+.address-section {
+  margin-top: 2.5rem;
+}
+
+.address-section h3 {
+  color: #22223b;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+.address-form {
+  background: #f8fafc;
+  border-radius: 14px;
+  width:fit-content;
+  padding: 1.2rem 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.address-form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.address-form input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #f2e9e4;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+}
+
+.address-form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}

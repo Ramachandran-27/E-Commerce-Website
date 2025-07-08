@@ -28,6 +28,7 @@ class OrderController {
             order.items = orderItems;
             res.status(200).json(order);
         } catch (error) {
+            console.log(error.message);
             res.status(500).json({ error: 'Failed to retrieve order' });
         }
     }
@@ -70,6 +71,38 @@ class OrderController {
             res.status(200).json(deletedOrder);
         } catch (error) {
             res.status(500).json({ error: 'Failed to delete order' });
+        }
+    }
+    async checkout(req, res) {
+        try {
+            const { userId, addressId, cartItems, paymentMethod } = req.body;
+            // Validate input
+            console.log(req.body);
+            if (!userId || !addressId || !cartItems || cartItems.length === 0 || !paymentMethod) {
+                return res.status(400).json({ error: 'Invalid input data' });
+            }
+            // Calculate total amount
+            let totalAmount = 0;
+            let products = [];
+            for (const item of cartItems) {
+                if (!item.product_id || !item.quantity || !item.price) {
+                    return res.status(400).json({ error: 'Invalid cart item data' });
+                }
+                const product = await this.OrderModel.getProductById(item.product_id);
+                totalAmount += item.quantity * parseInt(product.price);
+                products.push({ product_id: item.product_id, quantity: item.quantity, price: product.price });
+            }
+            // Create a new order
+            const newOrder = await this.OrderModel.createOrder({ userId:userId, addressId:addressId, status: 'Pending', totalAmount });
+            console.log(products);
+            // Create order items
+            for (const item of products) {
+                await this.OrderItemModel.addOrderItem({ orderId: newOrder.id,product_id:item.product_id,quantity:item.quantity,price:item.price });
+            }
+            res.status(201).json(newOrder);
+        } catch (error) {
+            console.log(error.message);
+            res.status(500).json({ error: 'Checkout failed' });
         }
     }
 }

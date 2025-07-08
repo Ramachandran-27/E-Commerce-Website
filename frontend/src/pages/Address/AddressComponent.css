@@ -1,0 +1,60 @@
+.address-card {
+  background: linear-gradient(120deg, #f6d36511 0%, #fda08511 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.08);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  position: relative;
+  border: 1.5px solid #f6d36522;
+}
+
+.address-info {
+  margin-bottom: 1rem;
+}
+
+.address-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 0.3rem;
+}
+
+.address-details {
+  color: #4a4e69;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.address-phone {
+  color: #fda085;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.address-actions {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.address-edit-btn,
+.address-delete-btn {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(253, 160, 133, 0.10);
+}
+
+.address-edit-btn:hover,
+.address-delete-btn:hover {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  transform: translateY(-2px) scale(1.04);
+}

@@ -1,0 +1,364 @@
+.product-details-container {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8fafc 0%, #f6d365 100%);
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-details-card {
+  display: flex;
+  gap: 2.5rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 28px;
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.13);
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  max-width: 950px;
+  width: 100%;
+}
+
+.product-details-gallery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+}
+
+.product-details-main-img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(246, 211, 101, 0.13);
+  background: #f6d365;
+}
+
+.product-details-thumbs {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.product-details-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border 0.15s;
+  background: #f6d365;
+}
+
+.product-details-thumb.active,
+.product-details-thumb:hover {
+  border: 2px solid #fda085;
+}
+
+.product-details-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.product-details-info h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #22223b;
+  margin-bottom: 0.2rem;
+}
+
+.product-details-category {
+  color: #fda085;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.product-details-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  color: #fda085;
+  font-weight: 700;
+}
+
+.product-details-rating .star {
+  font-size: 1.2rem;
+  color: #fda085;
+}
+
+.product-details-rating .review-count {
+  color: #4a4e69;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.product-details-price {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fda085;
+  margin: 0.2rem 0;
+}
+
+.product-details-stock {
+  color: #4a4e69;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.product-details-desc {
+  color: #444;
+  font-size: 1.08rem;
+  margin: 0.7rem 0 0.5rem 0;
+}
+
+.product-details-specs {
+  margin: 0.7rem 0;
+}
+
+.product-details-specs h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 0.3rem;
+}
+
+.product-details-specs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-details-specs li {
+  font-size: 1rem;
+  color: #4a4e69;
+  margin-bottom: 0.2rem;
+}
+
+.spec-key {
+  font-weight: 700;
+  color: #22223b;
+}
+
+.spec-value {
+  color: #22223b;
+}
+
+.product-details-add-btn {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 12px rgba(253, 160, 133, 0.13);
+  margin-top: 1.2rem;
+}
+
+.product-details-add-btn:disabled {
+  background: #ececec;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.product-details-wishlist-btn {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 2px 12px rgba(253, 160, 133, 0.13);
+  margin-top: 1.2rem;
+}
+
+.product-details-wishlist-btn:hover {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+
+.product-details-container {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f8fafc 0%, #f6d365 100%);
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.product-details-main-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  background: rgba(255,255,255,0.95);
+  border-radius: 28px;
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.13);
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+  max-width: 950px;
+  width: 100%;
+}
+
+.product-details-card {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  margin-bottom: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.product-details-reviews {
+  margin-top: 0;
+  background: linear-gradient(120deg, #f6d36522 0%, #fda08522 100%);
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(253, 160, 133, 0.13);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-details-reviews h3 {
+  color: #22223b;
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+/* ...keep the rest of your existing styles for reviews, forms, etc... */
+
+/* --- Reviews Section Styling Update --- */
+
+.my-review-section,
+.product-details-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.my-review-card,
+.product-details-review-item {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.my-review-card:hover,
+.product-details-review-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #22223b;
+  margin-bottom: 0.5rem;
+}
+
+.review-rating {
+  color: #fda085;
+  font-weight: 800;
+}
+
+.review-comment {
+  font-size: 1.05rem;
+  color: #4a4e69;
+  margin-bottom: 0.4rem;
+  white-space: pre-wrap;
+}
+
+.review-date {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  color: #22223b;
+  font-weight: 600;
+}
+
+.review-form select,
+.review-form textarea {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  outline: none;
+  resize: vertical;
+}
+
+.review-form textarea {
+  min-height: 100px;
+}
+
+.review-submit-btn,
+.review-delete-btn {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  align-self: flex-start;
+}
+
+.review-submit-btn:hover,
+.review-delete-btn:hover {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  transform: translateY(-1px);
+}
+
+.review-msg {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  color: #f56c6c;
+}
+
+.my-review-highlight {
+  border: 2px solid #fda085aa;
+}
+
+/* Empty reviews text */
+.product-details-no-reviews {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+}

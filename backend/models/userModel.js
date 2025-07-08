@@ -35,8 +35,8 @@ class UserModel {
   }
   async updateUser(id, userData) 
   {
-    const query = 'UPDATE users SET name = $1, email = $2, password_hash = $3 WHERE id = $4 RETURNING *';
-    const values = [userData.name, userData.email, userData.password, id];
+    const query = 'UPDATE users SET name = $1, email = $2 WHERE id = $3 RETURNING *';
+    const values = [userData.name, userData.email, id];
     const res = await this.db.query(query, values);
     return res.rows[0];
   }
@@ -46,6 +46,11 @@ class UserModel {
     const values = [id];
     const res = await this.db.query(query, values);
     return res.rows[0];
+  }
+  async getAllUsers(){
+    const query = 'Select * from users';
+    const res = await this.db.query(query);
+    return res.rows;
   }
 }
 

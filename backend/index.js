@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import path from "path";
 import { fileURLToPath } from "url";
 import db from "./config/db.js";
@@ -36,14 +37,18 @@ import reviewRoutes from "./routes/reviewRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import wishlistRoutes from "./routes/wishlistRoutes.js";
 
-const port = 3000;
+const port = 8000;
 const app = express();
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(cors({
+    origin:'http://localhost:3000',
+    credentials:true
+}));
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-app.use('/public',express.static(path.join(__dirname,"public")));
+app.use('/images',express.static(path.join(__dirname,"public/images")));
 db.connect();
 
 const addressModel = new AddressModel(db);
@@ -74,11 +79,11 @@ const wishlistController = new WishlistController(wishlistModel);
 app.use("/address", addressRoutes(addressController));
 app.use("/cart", cartRoutes(cartController));
 app.use("/category", categoryRoutes(categoryController));
-app.use("/order", orderRoutes(orderController));
-app.use("/payment", paymentRoutes(paymentController));
-app.use("/product", productRoutes(productController));
-app.use("/review", reviewRoutes(reviewController));
-app.use("/user", userRoutes(userController));
+app.use("/orders", orderRoutes(orderController));
+app.use("/payments", paymentRoutes(paymentController));
+app.use("/products", productRoutes(productController));
+app.use("/reviews", reviewRoutes(reviewController));
+app.use("/users", userRoutes(userController));
 app.use("/wishlist", wishlistRoutes(wishlistController));
 
 app.listen(port,() => {

@@ -6,7 +6,7 @@ export default function categoryRoutes(categoryController) {
 
     router.post('/create', authMiddleware, (req, res) => { categoryController.createCategory(req, res) });
 
-    router.get('/', authMiddleware, (req, res) => { categoryController.getCategories(req, res) });
+    router.get('/', (req, res) => { categoryController.getCategories(req, res) });
 
     router.get('/:id', authMiddleware, (req, res) => { categoryController.getCategoryById(req, res) });
 

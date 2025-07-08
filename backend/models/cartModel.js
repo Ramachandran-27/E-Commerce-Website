@@ -9,7 +9,15 @@ class CartModel  {
         return res.rows[0];
     }
     async getCartByUserId(userId) {
-        const query = 'SELECT * FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE user_id = $1';
+        const query = `SELECT cart_items.*,
+                 p.name,
+                 p.description,
+                 p.price,
+                 c.name as category,
+                 (SELECT pi.image_url FROM product_images pi WHERE pi.product_id = p.id LIMIT 1) as main_image,
+                 (SELECT ROUND(AVG(r.rating),1) FROM reviews r WHERE r.product_id = p.id) as average_rating
+                 FROM products p
+                 LEFT JOIN categories c ON p.category_id = c.id  LEFT JOIN cart_items ON cart_items.product_id = p.id WHERE user_id = $1`;
         const values = [userId];
         const res = await this.db.query(query, values);
         return res.rows;

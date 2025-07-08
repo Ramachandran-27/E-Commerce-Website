@@ -6,9 +6,9 @@ export default function reviewRoutes(reviewController) {
 
     router.post('/create', authMiddleware, (req, res) => { reviewController.createReview(req, res) });
 
-    router.get('/user', authMiddleware, (req, res) => { reviewController.getReviewsByUserID(req, res) });
+    router.get('/user/:id', authMiddleware, (req, res) => { reviewController.getReviewsByUserID(req, res) });
 
-    router.get('/:productId/average', authMiddleware, (req, res) => { reviewController.getAverageRating(req, res) });
+    router.get('/average/:productId', authMiddleware, (req, res) => { reviewController.getAverageRating(req, res) });
 
     router.get('/:productId', authMiddleware, (req, res) => { reviewController.getReviewsByProductID(req, res) });
 

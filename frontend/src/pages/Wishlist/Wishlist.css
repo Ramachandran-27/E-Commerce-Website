@@ -1,0 +1,29 @@
+.wishlist-container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  padding: 2.5rem 2rem;
+}
+
+.wishlist-container h2 {
+  color: #22223b;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.wishlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.wishlist-empty {
+  color: #888;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 2rem 0;
+}

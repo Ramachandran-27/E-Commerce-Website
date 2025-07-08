@@ -1,0 +1,77 @@
+.order-container {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  padding: 2.5rem 2rem;
+}
+
+.order-container h2 {
+  color: #22223b;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.order-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(120deg, #f6d36511 0%, #fda08511 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.08);
+  padding: 1.2rem 1.5rem;
+  border: 1.5px solid #f6d36522;
+  text-decoration: none;
+  color: #22223b;
+  transition: box-shadow 0.18s, transform 0.18s, border 0.18s;
+}
+
+.order-card:hover {
+  box-shadow: 0 12px 40px 0 rgba(253, 160, 133, 0.16);
+  transform: translateY(-4px) scale(1.01);
+  border-color: #fda08577;
+}
+
+.order-id {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.order-date {
+  color: #4a4e69;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.order-total {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fda085;
+}
+
+.order-total span {
+  color: #fda085;
+}
+
+.order-status {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4a4e69;
+}
+
+.order-empty {
+  color: #888;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 2rem 0;
+}

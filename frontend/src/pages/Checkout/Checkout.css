@@ -1,0 +1,120 @@
+.checkout-container {
+  max-width: 600px;
+  margin: 2.5rem auto;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  padding: 2.5rem 2rem;
+}
+
+.checkout-container h2 {
+  color: #22223b;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.checkout-summary h3 {
+  color: #fda085;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.checkout-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  color: #4a4e69;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-total {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #22223b;
+  margin-top: 1rem;
+}
+
+.checkout-total span {
+  color: #fda085;
+  margin-left: 0.5rem;
+}
+
+.checkout-address label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #22223b;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.checkout-address textarea {
+  width: 100%;
+  min-height: 80px;
+  border: none;
+  border-radius: 10px;
+  background: #f2e9e4;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+  resize: vertical;
+}
+
+.checkout-btn {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(253, 160, 133, 0.12);
+}
+
+.checkout-btn:hover {
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.checkout-empty {
+  color: #888;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.checkout-msg {
+  margin-top: 1rem;
+  color: #fda085;
+  font-weight: 600;
+  text-align: center;
+}
+
+.checkout-address-select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #f2e9e4;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(246, 211, 101, 0.08);
+}

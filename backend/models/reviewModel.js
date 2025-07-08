@@ -9,7 +9,7 @@ class ReviewModel {
         return res.rows[0];
     }
     async getReviewsByProductID(productID){
-        const query = 'SELECT * FROM reviews WHERE product_id = $1';
+        const query = 'SELECT * FROM reviews LEFT JOIN users on reviews.user_id=users.id WHERE product_id = $1';
         const values = [productID];
         const res = await this.db.query(query, values);
         return res.rows;

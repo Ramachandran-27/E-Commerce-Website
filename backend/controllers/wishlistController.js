@@ -5,7 +5,9 @@ class WishlistController {
     async addToWishlist(req, res) {
         try {
             const { userId, productId } = req.body;
+            console.log(req.body,userId,productId);
             const wishlistItem = await this.WishlistModel.addToWishlist(userId, productId);
+            console.log(wishlistItem);
             res.status(200).json(wishlistItem);
         } catch (error) {
             res.status(500).json({ message: 'Error adding to wishlist', error });
@@ -23,10 +25,13 @@ class WishlistController {
     async removeFromWishlist(req, res) {
         try {
             const { userId, productId } = req.body;
+            console.log(req.body);
             const removedItem = await this.WishlistModel.removeFromWishlist(userId, productId);
+            console.log(removedItem);
             res.status(200).json(removedItem);
         } catch (error) {
-            res.status(500).json({ message: 'Error removing item from wishlist', error });
+            console.log(error);
+            res.status(500).json({ message: error.message, error });
         }
     }
     async isProductInWishlist(req, res) {

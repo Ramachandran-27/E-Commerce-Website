@@ -1,0 +1,15 @@
+.product-list-container {
+  min-height: 100vh;
+  width:100%;
+  background: linear-gradient(120deg, #f8fafc 0%, #f6d365 100%);
+  padding: 3rem 0px;
+}
+
+.product-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}

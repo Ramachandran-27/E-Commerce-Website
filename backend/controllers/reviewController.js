@@ -4,9 +4,9 @@ class ReviewController {
     }
     async createReview(req, res) {
         try {
-            const { productId, rating, comment } = req.body;
-            const userId = req.user.id; // Assuming user ID is stored in req.user
-            const newReview = await this.ReviewModel.createReview(productId, userId, rating, comment);
+            const { user_id,product_id, rating, comment } = req.body;
+            const newReview = await this.ReviewModel.createReview(product_id, user_id, rating, comment);
+            console.log(req.body);
             res.status(201).json(newReview);
         } catch (error) {
             res.status(500).json({ error: 'Failed to create review' });
@@ -39,7 +39,7 @@ class ReviewController {
     }
     async getReviewsByUserID(req, res) {
         try {
-            const userId = req.user.id; // Assuming user ID is stored in req.user
+            const userId = req.params.id;
             const reviews = await this.ReviewModel.getReviewsByUserID(userId);
             if (!reviews || reviews.length === 0) {
                 return res.status(404).json({ error: 'No reviews found for this user' });
