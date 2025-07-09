@@ -171,8 +171,7 @@ export default function ProductList() {
               {productList.length === 0 ? (
                 <div className="product-list-empty">No products found.</div>
               ) : (
-                productList.map(product => (
-                  Array.isArray(product) &&
+                Array.isArray(product) && productList.map(product => (
                   <ProductCard details={product} key={product.id} />
                 ))
               )}
