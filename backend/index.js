@@ -43,7 +43,7 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(cors({
-    origin:'https://e-commerce-website-alzemnz0f-ramachandran-27s-projects.vercel.app',
+    origin:'https://ramachandraan-e-commerce-website.vercel.app',
     credentials:true
 }));
 
