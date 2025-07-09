@@ -15,6 +15,7 @@ export const getAllProducts = async (params) => {
 export const getProductById = async (productId) => {
     try {
         const response = await API.get(`/products/${productId}`);
+        console.log(response);
         return response.data;
     } catch (error) {
         console.log('Error fetching product:', error.message);
