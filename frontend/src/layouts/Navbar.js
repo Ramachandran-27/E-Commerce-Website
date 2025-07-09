@@ -61,7 +61,7 @@ export default function Navbar() {
                 <form className="search-form" onSubmit={handleSubmit}>
                     <select name="category" onChange={handleChange} value={formData.category} className="search-select">
                         <option value="">All Categories</option>
-                        {categories.map((category, index) => (
+                        {Array.isArray(categories) && categories.map((category, index) => (
                             <option value={category.name} key={index}>{category.name}</option>
                         ))}
                     </select>

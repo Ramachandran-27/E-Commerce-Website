@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="product-list-container">
       <div className="product-list-grid">
-        {productList.map((product, index) => (
+        {Array.isArray(productList) && productList.map((product, index) => (
           <ProductCard details={product} key={index} />
         ))}
       </div>

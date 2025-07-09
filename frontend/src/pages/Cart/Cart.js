@@ -59,7 +59,7 @@ export default function Cart() {
       ) : (
         <>
           <div className="cart-list">
-            {cartItems.map(item => (
+            {Array.isArray(cartItems) && cartItems.map(item => (
               <CartItem
                 key={item.id}
                 item={item}

@@ -28,7 +28,7 @@ export default function Order() {
         <div className="order-empty">No orders found.</div>
       ) : (
         <div className="order-list">
-          {orders.map(order => (
+          {Array.isArray(orders) && orders.map(order => (
             <Link to={`/orders/${order.id}`} className="order-card" key={order.id}>
               <div>
                 <div className="order-id">Order #{order.id}</div>

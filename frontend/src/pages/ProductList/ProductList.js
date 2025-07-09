@@ -172,6 +172,7 @@ export default function ProductList() {
                 <div className="product-list-empty">No products found.</div>
               ) : (
                 productList.map(product => (
+                  Array.isArray(product) &&
                   <ProductCard details={product} key={product.id} />
                 ))
               )}

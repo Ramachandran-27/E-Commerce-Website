@@ -37,7 +37,7 @@ export default function Wishlist() {
         <div className="wishlist-empty">No items in your wishlist.</div>
       ) : (
         <div className="wishlist-list">
-          {wishlist.map(item => (
+          {Array.isArray(wishlist) && wishlist.map(item => (
             <WishlistComponent key={item.id} item={item} onRemove={handleRemove} />
           ))}
         </div>
