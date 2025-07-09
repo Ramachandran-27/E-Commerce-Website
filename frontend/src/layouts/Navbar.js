@@ -28,7 +28,7 @@ export default function Navbar() {
             try {
                 const response = await getCategories();
                 console.log(response);
-                setCategories(response);
+                setCategories(response || []);
             } catch (error) {
                 console.log(error.message);
             }
